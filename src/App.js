@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Hero from "./components/Hero";
+import MovieCards from "./components/MovieCards";
+import NavBar from "./components/NavBar";
 
 function App() {
+  let [movieName, setMovieName] = useState("");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavBar setMovieName={setMovieName} />
+      <div className="container">
+        <Hero />
+        <MovieCards setMovieName={setMovieName} movieName={movieName} />
+      </div>
+    </>
   );
 }
 
